@@ -23,7 +23,7 @@ void * func(void *arg){
     char buf[128] = {0};
     while (1)
     {
-        recvfrom(sock_fd, buf, sizeof(buf),0,(struct sockaddr *)&src_addr,&src_addr_len);
+        read(sock_fd, buf, sizeof(buf),0,(struct sockaddr *)&src_addr,&src_addr_len);
         printf("target(%s) is buf：%s\n",inet_ntoa(src_addr.sin_addr),buf);
         bzero(buf,sizeof(buf));
     }
